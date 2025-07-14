@@ -26,10 +26,34 @@ pip install -e ".[dev]"
 ## Usage
 
 ```python
-from factorio_bp_editor import BlueprintEditor
+from factorio_bp_editor import BlueprintEditor, BlueprintBookEditor
+from draftsman.entity import AssemblingMachine
+from draftsman.constants import Direction
 
-# Example usage coming soon
+# Create a new blueprint
+editor = BlueprintEditor()
+editor.set_metadata(label="My Assembly Line")
+
+# Add entities
+machine = AssemblingMachine("assembling-machine-2")
+machine.position = (0, 0)
+machine.recipe = "iron-gear-wheel"
+editor.add_entity(machine)
+
+# Export blueprint string
+blueprint_string = editor.to_string()
+
+# Load existing blueprint
+editor = BlueprintEditor(blueprint_string)
+stats = editor.get_stats()
+print(f"Blueprint has {stats['total_entities']} entities")
 ```
+
+## Examples
+
+- `examples/basic_usage.py` - Comprehensive introduction to the library
+- `examples/blueprint_operations.py` - Common blueprint manipulation tasks
+- `examples/analyze_blueprint_file.py` - Analyze files containing blueprint strings
 
 ## Development
 
@@ -39,18 +63,20 @@ This project uses:
 - `mypy` for type checking
 - `pytest` for testing
 
+See [CLAUDE.md](CLAUDE.md) for detailed development guidelines and code style.
+
 ```bash
 # Run tests
-pytest
+uv run pytest
 
 # Format code
-ruff format
+uv run ruff format
 
 # Lint code
-ruff check
+uv run ruff check
 
 # Type check
-mypy src
+uv run mypy src
 ```
 
 ## License
