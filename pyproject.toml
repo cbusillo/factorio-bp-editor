@@ -1,0 +1,24 @@
+[project]
+name = "factorio-bp-editor"
+version = "0.1.0"
+description = "A modern Python tool for editing and manipulating Factorio blueprints"
+readme = "README.md"
+authors = [
+    { name = "Chris Busillo", email = "info@shinycomputers.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "factorio-draftsman>=2.0.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.8.0",
+    "mypy>=1.13.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
