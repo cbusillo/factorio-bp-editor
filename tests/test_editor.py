@@ -148,7 +148,7 @@ class TestBlueprintEditor:
         assert len(editor2.blueprint.entities) == 1
         assert editor2.blueprint.entities[0].name == "assembling-machine-1"
     
-    def test_get_stats(self):
+    def test_get_statistics(self):
         """Test getting blueprint statistics."""
         editor = BlueprintEditor()
         
@@ -163,7 +163,7 @@ class TestBlueprintEditor:
             belt.position = (i, 2)
             editor.add_entity(belt)
         
-        stats = editor.get_stats()
+        stats = editor.get_statistics()
         
         assert stats['total_entities'] == 5
         assert stats['entity_counts']['assembling-machine-1'] == 3
@@ -272,7 +272,7 @@ class TestBlueprintBookEditor:
         assert isinstance(book_string, str)
         assert len(book_string) > 0
     
-    def test_get_book_stats(self):
+    def test_get_book_statistics(self):
         """Test getting blueprint book statistics."""
         book_editor = BlueprintBookEditor()
         
@@ -288,7 +288,7 @@ class TestBlueprintBookEditor:
             
             book_editor.add_blueprint(editor.blueprint)
         
-        stats = book_editor.get_book_stats()
+        stats = book_editor.get_book_statistics()
         
         assert stats['total_blueprints'] == 2
         assert stats['total_entities'] == 6

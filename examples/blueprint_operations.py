@@ -64,7 +64,7 @@ def example_filter_entities():
         editor.add_entity(belt)
     
     print(f"Before filtering: {len(editor.blueprint.entities)} entities")
-    stats = editor.get_stats()
+    stats = editor.get_statistics()
     print(f"Entity types: {stats['entity_counts']}")
     
     # Remove all inserters
@@ -75,7 +75,7 @@ def example_filter_entities():
         editor.remove_entity(inserter.id)
     
     print(f"After filtering: {len(editor.blueprint.entities)} entities")
-    stats = editor.get_stats()
+    stats = editor.get_statistics()
     print(f"Entity types: {stats['entity_counts']}")
     
     return editor
@@ -111,7 +111,7 @@ def example_create_power_grid():
                     tile.position = (x * grid_size + dx, y * grid_size + dy)
                     editor.add_tile(tile)
     
-    stats = editor.get_stats()
+    stats = editor.get_statistics()
     print(f"Created power grid: {stats['total_entities']} poles, {stats['total_tiles']} tiles")
     
     return editor
@@ -187,7 +187,7 @@ def example_validate_and_fix():
         print("Blueprint is valid!")
     
     # Get statistics
-    stats = editor.get_stats()
+    stats = editor.get_statistics()
     print(f"\nBlueprint statistics:")
     print(f"  Total entities: {stats['total_entities']}")
     print(f"  Entity types: {stats['entity_counts']}")

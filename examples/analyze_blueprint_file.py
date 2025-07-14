@@ -26,7 +26,7 @@ def analyze_blueprint(blueprint_string: str, index: int) -> dict[str, any]:
         
         if bp_type == "Blueprint":
             editor = BlueprintEditor(blueprint_string)
-            stats = editor.get_stats()
+            stats = editor.get_statistics()
             
             return {
                 "index": index,
@@ -41,7 +41,7 @@ def analyze_blueprint(blueprint_string: str, index: int) -> dict[str, any]:
             
         elif bp_type == "BlueprintBook":
             book_editor = BlueprintBookEditor(blueprint_string)
-            stats = book_editor.get_book_stats()
+            stats = book_editor.get_book_statistics()
             
             blueprint_labels = []
             for i in range(len(book_editor.book.blueprints)):
